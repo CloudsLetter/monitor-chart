@@ -1,0 +1,21 @@
+# prometheus的镜像
+image: prom/prometheus:v2.32.1
+# cadvisor 默认要用
+cadvisor:
+  enable: true
+  hostPort: 8080
+# kube-state-metrics默认使用
+kube_state_metrics:
+  enable: true
+# node_exportor 默认启用
+node_exportor:
+  enable: true
+  hostPort: 9100
+postgres_exporter:
+  enable: false
+  url: "prometheus-postgres-exporter:80"
+traefik_export:
+  enable: true
+  url: "traefik"
+persistence:
+  storageClass: tencent-d
